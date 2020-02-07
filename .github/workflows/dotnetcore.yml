@@ -25,4 +25,4 @@ jobs:
     steps: 
     - uses: actions/checkout@v1
     - name: Run tests (target framework netcoreapp3.1)
-      run: dotnet test ./src/YetiApi.sln --configuration Release --framework netcoreapp3.1 --list-tests
+      run: dotnet test ./YetiApi.sln --configuration Release --framework netcoreapp3.1 --list-tests
