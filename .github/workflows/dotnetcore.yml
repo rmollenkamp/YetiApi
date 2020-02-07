@@ -23,6 +23,11 @@ jobs:
     needs: [build]
     runs-on: ubuntu-latest
     steps: 
-    - uses: actions/checkout@v1
-    - name: Run tests (target framework netcoreapp3.0)
-      run: dotnet test ./YetiApi.sln --configuration Release --framework netcoreapp3.0 --list-tests
+    - name: Checkout
+      uses: actions/checkout@v1
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.100
+    - name: Run tests (target framework netcoreapp3.1)
+      run: dotnet test ./YetiApi.sln --configuration Release --framework netcoreapp3.1 --list-tests
