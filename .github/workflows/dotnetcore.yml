@@ -19,5 +19,10 @@ jobs:
         dotnet-version: 3.1.100
     - name: Build .NET Core
       run: dotnet build --configuration Release
-    - name: Unit Tests
-      run: dotnet test
+  test:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps: 
+    - uses: actions/checkout@v1
+    - name: Run tests (target framework netcoreapp3.1)
+      run: dotnet test ./src/YetiApi.sln --configuration Release --framework netcoreapp3.1 --list-tests
